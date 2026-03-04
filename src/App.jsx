@@ -6,6 +6,7 @@ import AboutUs from './components/AboutUs'
 import FloatingButtons from './components/FloatingButtons'
 import ParticleCanvas from './components/ParticleCanvas'
 import { ADMIN_WHATSAPP } from './data/products'
+import { Analytics } from '@vercel/analytics/react'
 
 export default function App() {
     const contactLink = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(
@@ -234,6 +235,7 @@ export default function App() {
                     </div>
                 </footer>
             </main>
+            <Analytics />
         </div>
     )
 }
