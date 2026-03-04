@@ -25,12 +25,11 @@ export default function ProductModal({ product, onClose }) {
     return (
         <div
             onClick={onClose}
-            className="modal-overlay"
             style={{
                 position: 'fixed', inset: 0, zIndex: 100,
                 background: 'rgba(0,0,0,0.7)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                padding: '20px',
+                padding: 'clamp(8px, 3vw, 20px)',
                 animation: 'modalFadeIn 0.3s ease forwards',
             }}
         >
@@ -45,9 +44,7 @@ export default function ProductModal({ product, onClose }) {
                     border: '1px solid rgba(212,165,116,0.1)',
                     boxShadow: '0 30px 80px rgba(0,0,0,0.5)',
                     overflowY: 'auto',
-                    overflowX: 'hidden',
                     animation: 'modalSlideUp 0.4s ease forwards',
-                    boxSizing: 'border-box',
                 }}
             >
                 {/* Close */}
@@ -72,14 +69,14 @@ export default function ProductModal({ product, onClose }) {
                     }}>✕</button>
 
                 <div className="modal-grid" style={{
-                    display: 'grid', gap: '0',
+                    display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0',
                 }}>
                     {/* Left — Image + 3D */}
-                    <div className="modal-left" style={{ padding: '32px 24px' }}>
+                    <div style={{ padding: '32px 24px' }}>
                         {/* Product Image */}
-                        <div className="modal-product-image" style={{
+                        <div style={{
                             borderRadius: '16px', overflow: 'hidden',
-                            marginBottom: '16px', aspectRatio: '3/4',
+                            marginBottom: '16px', aspectRatio: '1/1',
                         }}>
                             <img
                                 src={product.image} alt={product.name}
@@ -88,7 +85,7 @@ export default function ProductModal({ product, onClose }) {
                         </div>
 
                         {/* 3D Viewer */}
-                        <div className="modal-3d-viewer" style={{
+                        <div style={{
                             height: '220px', borderRadius: '16px',
                             border: '1px solid rgba(212,165,116,0.08)',
                             background: 'rgba(0,0,0,0.3)',
@@ -132,7 +129,7 @@ export default function ProductModal({ product, onClose }) {
                     </div>
 
                     {/* Right — Details */}
-                    <div className="modal-right" style={{ padding: '48px 32px 32px 8px' }}>
+                    <div style={{ padding: '48px 32px 32px 8px' }}>
                         {/* Badge */}
                         {product.badge && (
                             <span style={{
@@ -152,7 +149,7 @@ export default function ProductModal({ product, onClose }) {
                         }}>{product.name}</h2>
 
                         {/* Price */}
-                        <p className="modal-price" style={{
+                        <p style={{
                             fontSize: '24px', fontWeight: 700, color: '#D4A574',
                             marginBottom: '20px',
                             transition: 'all 0.3s',
@@ -171,7 +168,6 @@ export default function ProductModal({ product, onClose }) {
                                         <button
                                             key={size.volume}
                                             onClick={() => setSelectedSize(i)}
-                                            className="modal-size-btn"
                                             style={{
                                                 padding: '10px 18px', borderRadius: '12px',
                                                 fontSize: '12px', fontWeight: 600, cursor: 'pointer',
@@ -209,7 +205,7 @@ export default function ProductModal({ product, onClose }) {
                         </div>
 
                         {/* Description */}
-                        <p className="modal-desc" style={{
+                        <p style={{
                             fontSize: '13px', lineHeight: 1.7,
                             color: 'rgba(255,255,255,0.35)', marginBottom: '16px',
                         }}>{product.description}</p>
@@ -223,7 +219,7 @@ export default function ProductModal({ product, onClose }) {
                             }}>Fragrance Notes</p>
                             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
                                 {product.notes.map((note) => (
-                                    <span key={note} className="modal-notes-tag" style={{
+                                    <span key={note} style={{
                                         padding: '5px 12px', borderRadius: '20px', fontSize: '11px',
                                         border: '1px solid rgba(212,165,116,0.12)',
                                         color: 'rgba(255,255,255,0.4)', fontWeight: 500,
@@ -234,7 +230,7 @@ export default function ProductModal({ product, onClose }) {
                         </div>
 
                         {/* Specs */}
-                        <div className="modal-specs-grid" style={{
+                        <div style={{
                             display: 'grid', gridTemplateColumns: '1fr 1fr 1fr',
                             gap: '10px', marginBottom: '24px',
                         }}>
@@ -263,7 +259,6 @@ export default function ProductModal({ product, onClose }) {
                         <a
                             href={getWhatsAppLink(product.name, currentSize ? currentSize.volume : '')}
                             target="_blank" rel="noopener noreferrer"
-                            className="modal-cta-btn"
                             style={{
                                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                                 gap: '10px', width: '100%', padding: '14px',

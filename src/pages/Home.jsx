@@ -302,19 +302,29 @@ export default function Home() {
 
             {/* Scroll indicator */}
             <div style={{
-                position: 'absolute', bottom: '28px', left: '50%',
+                position: 'absolute', bottom: 'clamp(10px, 3vh, 28px)', left: '50%',
                 transform: 'translateX(-50%)',
-                display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px',
-                animation: 'fadeSlideUp 1s ease 2s forwards', opacity: 0,
+                zIndex: 20 // ensure it's above the 3D canvas
             }}>
-                <span style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(212,165,116,0.25)' }}>
-                    Scroll
-                </span>
-                <div style={{
-                    width: '1px', height: '32px',
-                    background: 'linear-gradient(to bottom, rgba(212,165,116,0.3), transparent)',
-                    animation: 'scrollBounce 2s ease-in-out infinite',
-                }} />
+                <div className="scroll-indicator" style={{
+                    width: '100px', // Fixed width
+                    textAlign: 'center', // Center everything inside
+                    animation: 'fadeSlideUp 1s ease 2s forwards', opacity: 0,
+                    paddingBottom: '20px' // Add padding for safer interaction area
+                }}>
+                    <div style={{ marginBottom: '8px', paddingLeft: '0.35em' }}>
+                        <span style={{ fontSize: '9px', letterSpacing: '0.35em', textTransform: 'uppercase', color: 'rgba(212,165,116,0.6)', fontWeight: 600 }}>
+                            Scroll
+                        </span>
+                    </div>
+                    <div style={{
+                        width: '2px', height: 'clamp(20px, 5vh, 32px)',
+                        background: 'linear-gradient(to bottom, rgba(212,165,116,0.6), transparent)',
+                        animation: 'scrollBounce 2s ease-in-out infinite',
+                        borderRadius: '2px',
+                        margin: '0 auto' // Center the line
+                    }} />
+                </div>
             </div>
 
             <style>{`
