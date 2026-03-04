@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* ===== Unique Luxury Theme — Midnight + Rose Gold ===== */
+@theme {
+  --color-gold: #D4A574;
+  --color-gold-light: #E8C9A8;
+  --color-gold-dark: #B07D4F;
+  --color-accent: #8B6F5E;
+  --color-dark: #0B0D14;
+  --color-dark-card: #10121A;
+  --color-dark-card-hover: #161824;
+  --color-dark-nav: rgba(11, 13, 20, 0.92);
+  --color-cream: #F5EDE4;
+  --color-midnight: #141728;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-dark);
+  color: #ffffff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dark);
+  border-radius: 3px;
+}
+
+/* ===== Rose Gold Shimmer ===== */
+.gold-shimmer {
+  background: linear-gradient(120deg,
+      var(--color-gold-dark) 0%,
+      var(--color-gold) 20%,
+      var(--color-gold-light) 40%,
+      var(--color-gold) 60%,
+      var(--color-gold-dark) 80%,
+      var(--color-gold) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ===== Grid Layouts ===== */
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ===== Card Hover Micro-Animation ===== */
+@keyframes cardFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+/* ===== Responsive — Tablet ===== */
+@media (max-width: 768px) {
+  .modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .hero-text {
+    order: 1 !important;
+    text-align: center !important;
+  }
+
+  .hero-3d {
+    order: 2 !important;
+    height: 280px !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+/* ===== Responsive — Mobile Small ===== */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .modal-container {
+    max-height: 95vh !important;
+    border-radius: 12px !important;
+  }
+}
