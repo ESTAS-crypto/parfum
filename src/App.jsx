@@ -42,7 +42,7 @@ export default function App() {
                     style={{
                         position: 'relative',
                         overflow: 'hidden',
-                        padding: '100px 24px',
+                        padding: 'clamp(48px, 10vw, 100px) clamp(12px, 4vw, 24px)',
                         background: 'linear-gradient(180deg, #0B0D14 0%, #141728 30%, #181B30 50%, #141728 70%, #0B0D14 100%)',
                         textAlign: 'center',
                     }}
@@ -156,7 +156,7 @@ export default function App() {
                 <footer style={{
                     background: '#080A10',
                     borderTop: '1px solid rgba(212,165,116,0.06)',
-                    padding: '56px 24px 24px',
+                    padding: 'clamp(32px, 6vw, 56px) clamp(12px, 4vw, 24px) clamp(16px, 3vw, 24px)',
                 }}>
                     <div style={{ maxWidth: '1500px', margin: '0 auto' }}>
                         <div className="footer-grid" style={{ marginBottom: '40px' }}>

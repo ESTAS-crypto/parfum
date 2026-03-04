@@ -33,7 +33,7 @@ export default function Products() {
                 id="collection"
                 style={{
                     position: 'relative',
-                    padding: '80px 24px 60px',
+                    padding: 'clamp(40px, 10vw, 80px) clamp(12px, 4vw, 24px) clamp(30px, 8vw, 60px)',
                     overflow: 'hidden',
                     background: '#0B0D14',
                 }}
@@ -53,7 +53,7 @@ export default function Products() {
                         ref={headerRef}
                         style={{
                             textAlign: 'center',
-                            marginBottom: '56px',
+                            marginBottom: 'clamp(28px, 6vw, 56px)',
                             opacity: headerVisible ? 1 : 0,
                             transform: headerVisible ? 'translateY(0)' : 'translateY(30px)',
                             transition: 'opacity 0.8s ease, transform 0.8s ease',

@@ -119,7 +119,7 @@ export default function ScentFinder() {
             ref={sectionRef}
             style={{
                 position: 'relative',
-                padding: '80px 24px',
+                padding: 'clamp(40px, 10vw, 80px) clamp(12px, 4vw, 24px)',
                 overflow: 'hidden',
                 background: 'linear-gradient(180deg, #0B0D14, #0F1220, #0B0D14)',
             }}
@@ -327,10 +327,7 @@ export default function ScentFinder() {
                                 </div>
 
                                 {/* Best Match Product */}
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '120px 1fr',
-                                    gap: '16px',
+                                <div className="scent-best-match-card" style={{
                                     padding: '16px',
                                     borderRadius: '16px',
                                     border: '1px solid rgba(212,165,116,0.12)',
@@ -344,8 +341,7 @@ export default function ScentFinder() {
                                     />
                                     <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: '6px' }}>
                                         {bestMatch.badge && (
-                                            <span style={{
-                                                alignSelf: 'flex-start',
+                                            <span className="scent-badge" style={{
                                                 padding: '3px 10px', fontSize: '8px', fontWeight: 700,
                                                 textTransform: 'uppercase', letterSpacing: '0.12em',
                                                 borderRadius: '12px',
@@ -361,7 +357,7 @@ export default function ScentFinder() {
                                         <p style={{ fontSize: '11px', color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>
                                             {bestMatch.description}
                                         </p>
-                                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '4px' }}>
+                                        <div className="scent-notes" style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '4px' }}>
                                             {bestMatch.notes.map(n => (
                                                 <span key={n} style={{
                                                     fontSize: '9px', padding: '3px 8px', borderRadius: '10px',
@@ -411,10 +407,7 @@ export default function ScentFinder() {
                                             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
                                         </div>
 
-                                        <div style={{
-                                            display: 'grid',
-                                            gridTemplateColumns: 'repeat(3, 1fr)',
-                                            gap: '10px',
+                                        <div className="scent-other-grid" style={{
                                             marginBottom: '24px',
                                         }}>
                                             {otherMatches.map((product, i) => (
@@ -461,7 +454,7 @@ export default function ScentFinder() {
                                                     }}>{product.price}</p>
                                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '3px', justifyContent: 'center' }}>
                                                         {product.notes.slice(0, 2).map(n => (
-                                                            <span key={n} style={{
+                                                            <span key={n} className="scent-note-tag" style={{
                                                                 fontSize: '7px', padding: '2px 6px', borderRadius: '8px',
                                                                 border: '1px solid rgba(212,165,116,0.12)', color: 'rgba(212,165,116,0.45)',
                                                                 textTransform: 'uppercase', letterSpacing: '0.03em',

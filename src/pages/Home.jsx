@@ -129,7 +129,7 @@ export default function Home() {
                 style={{
                     position: 'relative', zIndex: 10,
                     maxWidth: '1500px', margin: '0 auto',
-                    padding: '100px 24px 60px', width: '100%',
+                    padding: 'clamp(72px, 12vw, 100px) clamp(12px, 4vw, 24px) clamp(32px, 8vw, 60px)', width: '100%',
                 }}
             >
                 {/* Text Side */}
@@ -246,16 +246,16 @@ export default function Home() {
                             { value: '100%', label: 'Authentic' },
                         ].map((stat, i) => (
                             <div key={stat.label} style={{
-                                paddingRight: '32px',
-                                paddingLeft: i > 0 ? '32px' : '0',
+                                paddingRight: 'clamp(16px, 4vw, 32px)',
+                                paddingLeft: i > 0 ? 'clamp(16px, 4vw, 32px)' : '0',
                                 borderLeft: i > 0 ? '1px solid rgba(212,165,116,0.1)' : 'none',
                             }}>
                                 <p style={{
                                     fontFamily: "'Playfair Display', Georgia, serif",
-                                    fontSize: '28px', fontWeight: 700, color: '#D4A574',
+                                    fontSize: 'clamp(20px, 4vw, 28px)', fontWeight: 700, color: '#D4A574',
                                 }}>{stat.value}</p>
                                 <p style={{
-                                    fontSize: '10px', letterSpacing: '0.2em',
+                                    fontSize: 'clamp(8px, 1.5vw, 10px)', letterSpacing: '0.2em',
                                     textTransform: 'uppercase', color: 'rgba(255,255,255,0.25)', marginTop: '4px',
                                 }}>{stat.label}</p>
                             </div>
